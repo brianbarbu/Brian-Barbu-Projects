@@ -1,0 +1,10 @@
+//Brian Barbu
+//brb9da
+
+LifeCycle Questions
+
+Commenting out the prototype for getMaxMyObj() causes a missing prototype error. C++ needs protoypes so the compiler knows what to process as it gives a structure to the function. 
+
+Question: 
+
+Prototypes are used so the structure is known and information will only have to be read once, but is possible to force process the program in C++?

@@ -1,0 +1,10 @@
+//Brian Barbu
+//brb9da
+
+Vector Questions
+
+Removing the "#include <iostream>" results in an error. This is because important functions optimized for processing input and output are in that package and must be available in the program's library. 
+
+The inclusion of "using namespace std;" has the effect of simplifying syntax so that functions like cout and cin can be written more efficiently. Therefore, removing the line could cause error if improper syntax is used in the program. 
+
+Question: If you expand a vector class's capability in the program can you transfer that information actively to accompanying programs?

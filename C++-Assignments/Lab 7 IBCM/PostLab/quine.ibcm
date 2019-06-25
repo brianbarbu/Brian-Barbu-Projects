@@ -1,0 +1,20 @@
+C007 000		jmp	start	skips memory declarations
+0013 001		dw	size	mem for size
+0000 002		
+0001 003		dw	one	mem for number 1
+0000 004		dw	count	mem for i
+3000 005		dw	loadhlp	mem for load helper
+0000 006
+3001 007 	start	load	size	size - count
+6004 008		sub	count
+E013 009		jmpl	end	end if count > size
+3005 00A		load	loadhlp
+5004 00B		add	count
+400D 00C		store	loop	prepare loop
+0000 00D	loop	dw	temp
+1800 00E		printH		prints current memory
+3004 00F		load	count
+5003 010		add	one	increment count
+4004 011		store	count
+C007 012		jmp	start	restart loop
+0000 013	end

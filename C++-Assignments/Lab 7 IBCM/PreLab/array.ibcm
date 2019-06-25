@@ -1,0 +1,35 @@
+C00A 00             jmp     start   skips over memory declarations
+0020 01     a       dw      20      int a[]         
+0005 02     size    dw      3       size = 3
+0000 03     max     dw      0       max = 0
+0001 04	    one	    dw      1
+0000 05     x       dw      0	    spot in array
+0000 06     place   dw      0	    keep place
+3000 07     ldit    dw      3000    declaration for load memory
+0000 08
+0000 09
+3002 0A     start   load    size    load in default size of array
+6005 0B             sub     x       subtract x from size
+E01D 0C             jmpl    end     if result < 0 goes to end
+D01D 0D             jmpe    end     if result = 0 goes end
+3007 0E             load    ldit    load load instruction
+5001 0F             add     a[]     
+5005 10             add     x
+4012 11             store   loop    prepare for loop
+0000 12     loop    dw      0       load a[i]
+4006 13             store   place   sets place to a[i]
+6003 14             sub     max     a[i] - max
+E019 15             jmpl    xit     if a[i] less than max goes xit
+D019 16             jmpe    xit	    if a[i] equal than max goes xit
+3006 17             load    place   load place
+4003 18             store   max     sets max
+3005 19     xit     load    x       load x
+5004 1A             add     1       increment x
+4005 1B             store   x       store new x
+C00A 1C             jmp     start   go to start
+3003 1D     end     load    max     loads max
+1800 1E             printH	    prints max
+0000 1F     a[]     dw      0       a[]         
+0001 20     a0      dw      1       sets a[0] = 1
+0008 21     a1      dw      8       sets a[1] = 8
+0006 22     a2      dw      6       sets a[2] = 6

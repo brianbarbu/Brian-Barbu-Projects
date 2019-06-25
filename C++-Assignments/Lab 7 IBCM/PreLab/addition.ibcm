@@ -1,0 +1,30 @@
+C00A 000 	jmp	start	skips over memory declarations
+0000 001 x	dw	0	mem for first input x
+0000 002 y	dw	0	mem for second input y
+0000 003 z	dw	0	mem for third input z
+0000 004 total	dw	0	mem for total
+0000 005 one	dw	1
+0000 006 zero	dw	0
+0000 007
+0000 008
+0000 009
+1000 00A start	readH		read first input
+4001 00B 	store	x	store input in x
+1000 00C 	readH		read second input
+4002 00D 	store	y	store input in y
+1000 00E 	readH		read third input
+4003 00F 	store	z	store input in z
+3004 010 	load	total	load the total so inputs can be added in
+5001 011 	add 	x	adds x to total
+5002 012 	add 	y	adds y to total
+5003 013 	add 	z	adds z to total
+D017 014 	jmpe	xit	jumps to xit when total is 0
+1800 015 	printH		print the total
+C00A 016	jmp	start	jumps to start else
+3001 017 xit	load	x	load x for print
+1800 018	printH		prints x
+3002 019	load	y	load y for print
+1800 01A	printH		prints y
+3003 01B	load	z	load z for print
+1800 01C	printH		prints z
+0000 01D	halt		halt program
